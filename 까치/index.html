@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://kit.fontawesome.com/88e49a521b.js" crossorigin="anonymous"></script>
+   <meta charset="UTF-8">
+   <title>calvinklein</title>
+   <style>
+      #ssub1_ul,#ssub1_ul2{
+         list-style:none;
+         margin:0;
+         padding: 0;
+         margin-top:5px;
+      }
+      #ssub1_ul>li,#ssub1_ul2>li{
+         /*border:1px solid red;*/
+         height: 30px;
+         line-height: 20px;
+         font-weight: 400;
+      }
+      #ssub1_ul>li:hover,#ssub1_ul2>li:hover{
+         text-decoration: underline;
+         font-weight: 600;
+      }
+      #ssub1{
+         width: 200px;
+         float: left;
+         height: 300px;
+         margin-left: 30%;
+         margin-right:50px;
+      }
+      #ssub2{
+         float: left;
+         width: 200px;
+         height: 300px;
+      }
+      #sub_menu>img,#sub_menu2>img,#sub_menu3>img,#sub_menu4>img{
+         width: 250px;
+         height: 300px;
+         margin-top:40px;
+         margin-right: 150px;
+      }
+        #footer_logo{
+         width: 230px;
+         height: 40px;
+         margin-top:20px;
+      }
+      #footer_logo>img{
+         width: 230px;
+         height: 40px;
+      }
+      footer{
+         width: 70%;
+         margin:0 auto;
+         position: relative;
+      }
+      #footer_ul,#footer_ul2,#footer_ul3,#footer_ul4{
+         list-style: none;
+         margin:0;
+         padding: 0;
+      }
+      #footer_text>div{
+         float: left;
+         /*border:1px solid red;*/
+         width: 275px;
+      }
+      #footer_ul>li,#footer_ul2>li,#footer_ul3>li,#footer_ul4>li{
+         height: 40px;
+      }
+      #footer_ul>li:hover,#footer_ul2>li:hover,#footer_ul3>li:hover,#footer_ul4>li:hover{
+         text-decoration: underline;
+         cursor: pointer;
+      }
+      .footer_li{
+         font-weight: 600;
+      }
+      .footer_li:hover{
+         text-decoration: none;
+      }
+      #footer_text{
+         margin-top:60px;
+         font-size: 14px;
+         position: relative;
+      }
+      #footer_icon{
+         position: absolute;
+         top:380px;
+         font-size: 20px;
+         left:0;
+      }
+      #footer_icon>i{
+         margin-right: 13px;
+      }
+      #footer_icon>i:hover{
+         cursor: pointer;
+      }
+      #footer_icon>p{
+         font-size: 13px;
+         margin-top: 50px;
+      }
+      #lang{
+         float: right;
+         margin-top:-150px;
+         margin-right:50px;
+      }
+      #cun1,#cun2{
+         clear: both;
+         border-bottom:1px solid black;
+         width: 230px;
+         padding: 5px;
+         margin:0;
+
+
+      }
+      #cun1{
+         position: relative;
+         margin-bottom: 10px;
+      }
+      #cun1>i{
+         position: absolute;
+         top:0;
+         right:0;
+      }
+      #cun2{
+         position: relative;
+      }
+      #cun2>i{
+         position: absolute;
+         top:0;
+         right:0;
+      }
+      #lang>img{
+         margin-top:15px;
+      }
+      #lang>img:hover{
+         cursor: pointer;
+      }
+      #lang_text{
+         margin-top:40px;
+      }
+      #lang_text2{
+         float: right;
+         width: 530px;
+         margin-top:123px;
+
+      }
+      strong:hover{
+         text-decoration: underline;
+         cursor: pointer;
+      }
+      .cls100{
+         list-style:none;
+         margin:0;
+         padding: 0;
+         width: 230px;
+         display: none;
+      }
+      .cls100>li{
+         text-align: center;
+         height: 40px;
+         border:1px solid #000;
+         border-bottom: 0;
+         line-height: 40px;
+         border-top:0;
+      }
+      .cls100>li:hover{
+         cursor: pointer;
+         background: #f1f1f1;
+      }
+      #cls099{
+         border-top:1px solid black;
+      }
+      #cls098{
+         border-bottom: 1px solid black;
+      }
+      #sub_cun1{
+         position: absolute;
+         z-index: 999;
+         background: #fff;
+      }
+        #FOOTER{
+         clear: both;
+         margin-top:30px;
+         width: 100%;
+         margin:0 auto;
+         height: 500px;
+         border-top:1px solid #ddd;
+      }
+       #header{
+         width: 100%;
+         position: relative;
+      }
+      #sub_menu,#sub_menu2,#sub_menu3,#sub_menu4{
+         position: absolute;
+         top:60px;
+         left:0;
+         background: #fff;
+      height: 400px;
+      display: none;
+      width: 100vw;
+      border:1px solid #ddd;
+      z-index: 999 !important; 
+      }
+   #MENU1:hover ~#sub_menu{
+      display: block;
+      }
+      #sub_menu:hover{
+         display: block;
+      }
+     #MENU2:hover ~#sub_menu2{
+      display: block;
+      }
+      #sub_menu2:hover{
+         display: block;
+      }
+      #MENU3:hover ~#sub_menu3{
+      display: block;
+      }
+      #sub_menu3:hover{
+         display: block;
+      }
+      #MENU4:hover ~#sub_menu4{
+      display: block;
+      }
+      #sub_menu4:hover{
+         display: block;
+      }
+      *{
+         box-sizing: border-box;
+      }
+      html{
+         scroll-behavior: smooth;
+         font-size: 14px;
+      }
+      body{
+         margin:0;
+         padding: 0;
+         font-family: 나눔고딕, Arial;
+      }
+      nav{
+         height: 60px;
+         border:1px solid #ddd;
+      }
+      #HEADER{
+         position: fixed;
+         width: 100%;
+         background: #fff;
+      }
+      #LOGO{
+         background: #fff;
+         /*border:1px solid red;*/
+      }
+      #LOGO>img{
+         width: 210px;
+         height: 35px;
+         margin-top:13px;
+         float: left;
+         margin-left:200px;
+      }
+      #MENU{
+         float: left;
+         margin-left: 150px;
+      }
+      #MENU>div{
+         float: left;
+         margin-right: 35px;
+         height: 60px;
+         text-align: center;
+         line-height: 60px;
+         font-weight: 600;
+      }
+      #MENU5{
+         color:red;
+      }
+      #MENU>div:hover{
+         cursor: pointer;
+         text-decoration: underline;
+      }
+     
+      #main_icon>div{
+      float: left;
+      font-size: 14px;
+      margin-right:20px;
+      margin-top:7px;
+      }
+      #main_icon div:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #main_icon{
+         display: inline-block;
+         clear: both;
+         position: absolute;
+         top:0;
+         right:300px;
+      }
+       aside{
+         width: 70px;
+         height: 150px;
+         /*border:1px solid black;*/
+         position: fixed;
+         bottom: 0px;
+         right: 100px;
+      }
+      #top{
+         width: 80px;
+         height: 40px;
+         border-radius: 30px;
+         color:#000;
+         background: #111;
+         text-align: center;
+         line-height: 40px;
+         margin-bottom: 10px;
+         font-size: 15px;
+         font-weight: 600;
+         position: fixed;
+         top: -100px;
+         display: block;
+         border:1px solid #fff;
+      }
+      #top a{
+         color:#fff;
+         text-decoration: none;
+         padding: 10px;
+         /*border:1px solid black;*/
+      }
+      #section_left{
+         width: 520px;
+         height: 93%;
+         margin-top:60px;
+         position: fixed;
+         text-align: center;
+         /*z-index: -999;*/
+      }
+      #section_left>p{
+         margin-top:40px;
+         margin-left:10px;
+      }
+      #section_left span{
+         color:red;
+      }
+      #filter{
+         margin-left: 210px;
+         width: 140px;
+         padding: 15px;
+         background: #111;
+         color:#fff;
+         margin-top: 80px;
+         position: relative;
+      }
+      #dbwjd{
+         position: absolute;
+         top:15px;
+         right:20px;
+         display: none;
+      }
+      #filter>i{
+         background: #111;
+         /*padding: 8px;*/
+         margin-left: 50px;
+         border:0;
+         color:#fff;
+         font-size: 16px;
+
+      }
+      #accordion{
+         border:1px solid black;
+         width: 300px;
+         margin-left: 210px;
+         z-index: -1;
+      }
+      .size,.human{
+         border:1px solid black;
+         padding: 8px;
+         display: inline-block;
+         margin:20px 0;
+
+      }
+      .size:hover,.human:hover{
+         background: #000;
+         color:#fff;
+         cursor: pointer;
+      }
+      .accordion1:hover,.accordion2:hover,.accordion3:hover{
+         cursor: pointer;
+      }
+      .accordion1,.accordion2,.accordion3{
+         padding: 15px;
+         border: 1px solid #ddd;
+         font-weight: 600;
+      }
+      .panel1,.panel2,.panel3{
+         display: none;
+      }
+      .panel1>p:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #section_right{
+         margin-top:70px;
+         width: 71.5%;
+         height: 1500px;
+         border:1px solid red;
+         float: right;
+      }
+   </style>
+   <script>
+        $(function(){
+          $(".accordion1").click(function(){
+            $(".panel1").css({"display":"block"});
+            $(".panel2").css({"display":"none"});
+            $(".panel3").css({"display":"none"});
+          });
+          $(".accordion1").dblclick(function(){
+            $(".panel1").css({"display":"none"});
+          });
+
+          $(".accordion2").click(function(){
+            $(".panel2").css({"display":"block"});
+            $(".panel1").css({"display":"none"});
+            $(".panel3").css({"display":"none"});
+          });
+          $(".accordion2").dblclick(function(){
+            $(".panel2").css({"display":"none"});
+          });
+
+          $(".accordion3").click(function(){
+            $(".panel3").css({"display":"block"});
+            $(".panel2").css({"display":"none"});
+            $(".panel1").css({"display":"none"});
+          });
+          $(".accordion3").dblclick(function(){
+            $(".panel3").css({"display":"none"});
+          });
+        });
+</script>
+   <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos < currentScrollPos) {
+          document.getElementById("top").style.top = "800px";
+        } else {
+           document.getElementById("top").style.top = "-300px";
+        }
+           // prevScrollpos = currentScrollPos;
+      }
+   </script>
+   <script>
+      $(function(){
+           $(window).scroll(function(){
+         if($(window).scrollTop() > 0){
+               $("#main_header2").css({"display":"block"});
+               $("#main_header").css({"display":"none"});
+            }else{
+               $("#main_header2").css({"display":"none"});
+               $("#main_header").css({"display":"block"});
+             }
+  });
+         });
+   </script>
+   <script>
+       $(function(){
+            $("#search").click(function(){
+               $("#input_text").slideToggle();
+            });
+         });
+    </script>
+     <script>
+       $(function(){
+            $("#filter").click(function(){
+               $("#accordion").slideToggle();
+               $("#bbkjh101").toggleClass("fa-times");
+               $("#bbkjh101").toggleClass("fa-bars");
+            });
+         });
+    </script>
+    <!-- <script>
+       $(function(){
+            $("#filter").click(function(){
+               $("#dbwjd").slideToggle();
+            });
+         });
+    </script> -->
+   <script>
+      $(function(){
+            $("#cun1").click(function(){
+               $(".cls100").slideToggle();
+               $(".cls100").css({"border-top":"transparent"});
+            });
+         });
+
+   </script>
+   <script>
+      $(function(){
+         $("header").hover(
+         function(){
+            $("#section_left").hide();   
+         },
+         function(){
+            $("#section_left").show();
+         }
+         );
+      });
+   </script>
+   <!-- <script>
+     $(function(){
+       ("#filter").click(function(){
+          $(this).next().css({display:none});
+       });
+     });
+   </script> -->
+     <script>
+$(function(){
+    //마지막 스크롤 값을 저장할 lastScroll 변수
+    var lastScroll = 0;
+    $(window).scroll(function(event){ //스크롤이 움직일때 마다 이벤트 실행
+        //현재 스크롤의 위치를 저장할 st 변수
+        var st = $(this).scrollTop();
+        //스크롤 상하에 따른 반응 정의
+     
+        if ($(window).scrollTop() > 500) { //스크롤이 아래로 200px 이상 내려갔을때 실행되는 이벤트 정의
+            $('#FOOTER').hide();
+        
+        } else {
+             //스크롤이 위로 올라갔을때 실행되는 이벤트 정의
+             $('#FOOTER').show();
+        }
+        //현재 스크롤 위치(st)를 마지막 위치로 업데이트
+        lastScroll = st;
+    });
+});
+</script>
+</head>
+<body>
+    <div id="HEADER">
+     <header>
+        <nav>
+           <div id="LOGO">
+              <img src="LOGO.jpg" alt="">
+           </div>
+           <div id="MENU">
+           <div id="MAIN_MENU1">
+              <div id="MENU1">
+                 MEN
+              </div>
+              <div id="sub_menu">
+                 <div id="ssub1">
+                 <ul id="ssub1_ul">의류
+                    <li>모든 제품 쇼핑</li>
+                    <li>재킷</li>
+                    <li>스웨터</li>
+                    <li>스웨트셔츠 + 후디</li>
+                    <li>티셔츠 + 탱크</li>
+                    <li>셔츠</li>
+                    <li>데님 팬츠</li>
+                    <li>팬츠 + 쇼츠</li>
+                 </ul>
+                 </div>
+                 <div id="ssub2">
+                 <ul id="ssub1_ul2">액세서리
+                    <li>모든 제품 쇼핑</li>
+                    <li>백 + 백팩</li>
+                    <li>지갑 + 액세서리 소품</li>
+                    <li>벨트</li>
+                    <li>부츠 + 스니커즈</li>
+                    <li>캡 + 스카프</li>
+                 </ul>
+                 </div>
+               <img src="MENU-men.jpg" alt="">
+           </div>
+           </div>
+           
+           <div id="MAIN_MENU2">
+              <div id="MENU2">
+                 WOMEN
+              </div>
+              <div id="sub_menu2">
+                 <div id="ssub1">
+                 <ul id="ssub1_ul">의류
+                    <li>모든 제품 쇼핑</li>
+                    <li>재킷</li>
+                    <li>스웨터 + 가디건</li>
+                    <li>드레스 + 오버롤</li>
+                    <li>티셔츠 + 탱크</li>
+                    <li>팬츠 + 쇼츠</li>
+                    <li>스커트</li>
+                    <li>언더웨어</li>
+                    <li>액티브웨어</li>
+                 </ul>
+                 </div>
+                 <div id="ssub2">
+                 <ul id="ssub1_ul2">액세서리
+                    <li>모든 제품 쇼핑</li>
+                    <li>핸드백 + 파우치</li>
+                    <li>시계 + 주얼리</li>
+                    <li>캡 + 비니</li>
+                 </ul>
+                 </div>
+               <img src="MENU-woman.jpg" alt="">
+                 </div>
+           </div>
+
+           <div id="MAIN_MENU3">
+              <div id="MENU3">
+                 UNDERWEAR
+              </div>
+                 <div id="sub_menu3">
+                    <div id="ssub1">
+                    <ul id="ssub1_ul">남성
+                       <li>모든 제품 쇼핑</li>
+                       <li>멀티팩</li>
+                       <li>트렁크</li>
+                       <li>브리프</li>
+                       <li>잠옷</li>
+                    </ul>
+                    </div>
+                    <div id="ssub2">
+                    <ul id="ssub1_ul2">여성
+                       <li>모든 제품 쇼핑</li>
+                       <li>브라</li>
+                       <li>팬티</li>
+                       <li>멀티팩</li>
+                       <li>잠옷</li>
+                    </ul>
+                    </div>
+                  <img src="MENU-under.jpg" alt="">
+                    </div>
+           </div>
+
+           <div id="MAIN_MENU4">
+              <div id="MENU4">
+                 PERFORMANCE
+              </div>
+              <div id="sub_menu4">
+                 <div id="ssub1">
+                    <ul id="ssub1_ul">남성용 의류
+                       <li>모든 제품 쇼핑</li>
+                       <li>재킷 + 코트</li>
+                       <li>스웨트셔츠 + 후디</li>
+                       <li>티셔츠 + 탱크</li>
+                       <li>팬츠 + 쇼츠</li>
+                       <li>수영복</li>
+                    </ul>
+                    </div>
+                    <div id="ssub2">
+                    <ul id="ssub1_ul2">여성
+                       <li>모든 제품 쇼핑</li>
+                       <li>스포츠 브라</li>
+                       <li>레깅스</li>
+                       <li>재킷 + 코트</li>
+                       <li>티셔츠 + 탱크</li>
+                       <li>팬츠 + 쇼츠</li>
+                       <li>수영복</li>
+                       <li>워크아웃 액세서리</li>
+                    </ul>
+                    </div>
+                  <img src="MENU-per.jpg" alt="">
+                    </div>
+           </div>
+              <div id="MENU5">
+                 OFF SEASON   
+              </div>
+           </div>
+
+         <div id="main_icon">
+               <div id="search">
+               <p><i class="fas fa-search icon"></i>
+               검색</p>
+               </div> 
+
+               <div id="magang">
+               <p><i class="fas fa-map-marker-alt"></i>
+               매장 검색</p>
+               </div>
+
+               <div id="human">
+               <p><i class="fas fa-user"></i>
+               로그인</p>
+               </div>
+
+               <div id="bag">
+               <p><i class="fas fa-shopping-bag"></i>
+               장바구니</p>
+               </div>
+            </div>
+        </nav>
+           
+     </header>
+  </div>
+  <section>
+     <div id="section_left">
+        <p>홈 / <span>시즌 오프</span></p>
+      <div id="filter">
+         필터 <i class="fas fa-times" id="bbkjh101"></i></i>
+      </div>
+
+      <div id="accordion">
+      <div class="accordion1">가격</div>
+         <div class="panel1" >
+              <p><i class="fas fa-won-sign"></i>0-50,000 <br></p>
+              <p><i class="fas fa-won-sign"></i>50,001-100,000 <br></p>
+              <p><i class="fas fa-won-sign"></i>100,001-150,000 <br></p>
+              <p><i class="fas fa-won-sign"></i>150,001-200,000<br></p> 
+              <p><i class="fas fa-won-sign"></i>200,001-400,000</p>
+         </div>
+
+         <div class="accordion2">사이즈</div>
+         <div class="panel2">
+          <div class="size">XS</div>
+          <div class="size">S</div>
+          <div class="size">M</div>
+          <div class="size">L</div>
+          <div class="size">XL</div>
+         </div>
+
+         <div class="accordion3">성별</div>
+         <div class="panel3">
+           <div class="human"> MEN </div>
+           <div class="human"> WOMEN </div>
+         </div>
+         </div>
+     </div>
+     <div id="section_right">
+        
+     </div>
+  </section>
+  <div id="FOOTER">
+         <footer>
+            <div id="footer_logo">
+            <img src="LOGO.jpg" alt="">
+            </div>
+         <div id="footer_text">
+            <div id="TEXT1">
+               <ul id="footer_ul">
+                  <li class="footer_li">고객서비스</li>
+                  <li>주문 조회/반품</li>
+                  <li>배송정보</li>
+                  <li>반품정책</li>
+                  <li>결제방법</li>
+                  <li>친구에게 추천하기</li>
+               </ul>
+            </div>
+            <div id="TEXT2">
+               <ul id="footer_ul2">
+                  <li class="footer_li">탐색</li>
+                  <li>남성</li>
+                  <li>여성</li>
+                  <li>언더웨어</li>
+                  <li>기능성</li>
+                  <li>세일</li>
+               </ul>
+            </div>
+            <div id="TEXT3">
+               <ul id="footer_ul3">
+                  <li class="footer_li">소개</li>
+                  <li>CALVIN KLEIN 소개</li>
+                  <li>직업</li>
+               </ul>
+            </div>
+            <div id="TEXT4">
+               <ul id="footer_ul4">
+                  <li class="footer_li">연락처</li>
+                  <li>이메일</li>
+                  <li>연락처</li>
+               </ul>
+            </div>
+         </div>
+         <div id="footer_icon">
+            <i class="fab fa-twitter"></i> 
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i> 
+            <i class="fab fa-youtube"></i> 
+            <i class="fab fa-pinterest-square"></i>
+            <p>Copyright © 2019년 모든 저작권은 Calvin Klein에 있으며 무단 복제 및 도용을 금지합니다.</p>
+         </div>
+         <div id="lang">
+            <p>언어/위치</p>
+            <div id="cun1">
+               한국<i class="fas fa-angle-down"></i>
+            </div>
+            <div id="sub_cun1">
+               <ul class="cls100">
+                  <li id="cls099">홍콩</li>
+                  <li>일본</li>
+                  <li>말레이시아</li>
+                  <li>싱카포르</li>
+                  <li>한국</li>
+                  <li id="cls098">대만</li>
+               </ul>
+            </div>
+            <div id="cun2">
+               한국어<i class="fas fa-angle-down"></i>
+            </div>
+            <img src="footer-img.jpg" alt="">
+            <p id="lang_text">Calvin Klein은 전 세계 목화 농업 개선을 위해 <br> The Better Cotton Initiative와 협력합니다.</p>
+         </div>
+         <p id="lang_text2">캘리포니아 공급망 투명성 & UK 현대판 노예제도 선언 | <strong>개인정보 보호정책</strong> | 이용 약관</p>
+         </footer>
+      </div>
+      </div>
+      <aside>
+      <div id="top">
+         <a href="#">TOP</a>
+      </div>
+      </aside>
+</body>
+</html>
