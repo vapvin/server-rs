@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <link rel="stylesheet" href="jquery-bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://kit.fontawesome.com/88e49a521b.js" crossorigin="anonymous"></script>
+   <meta charset="UTF-8">
+   <title>The Body Shop</title>
+   <style>
+      *{
+         box-sizing: border-box;
+      }
+      body{
+         margin:0;
+         padding: 0;
+         font-family: "나눔고딕", Arial;
+         scroll-behavior: smooth;
+      }
+      html{
+         scroll-behavior: smooth;
+      }
+      #wrapper{
+         width: 70%;
+         margin:0 auto;
+         height: auto;
+      }
+      aside{
+         width: 70px;
+         height: 150px;
+         /*border:1px solid black;*/
+         position: fixed;
+         bottom: 200px;
+         right: 140px;
+      }
+      #top{
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         color:#000;
+         background: #ddd;
+         text-align: center;
+         line-height: 60px;
+         margin-bottom: 10px;
+         font-size: 17px;
+         font-weight: 600;
+         position: fixed;
+         top: -300px;
+         display: block;
+      }
+      #top:hover{
+         background: #ccc;
+      }
+      #top a{
+         color:#fff;
+         text-decoration: none;
+         padding: 10px;
+         /*border:1px solid black;*/
+      }
+      footer{
+         clear: both;
+         width: 100%;
+         height: 280px;
+         background: #fff;
+         position: relative;
+      }
+      #foot3{
+         position: absolute;
+         top:0;
+         left:0;
+         width: 100%;
+         height: 50px;
+         background: #e1e1e1;
+         line-height: 50px;
+         text-align: left;
+         text-indent: 50px;
+         color:#000;
+         font-weight: 600;
+         font-size: 14px;
+
+      }
+      #foot3 p{
+         float: left;
+         margin:0 15px;
+      }
+      #foot3 p:hover{
+         cursor: pointer;
+      }
+      #foot2{
+         position: absolute;
+         top:0;
+         right: 40px;
+         background: #fff;
+         width: 250px;
+         height: 35px;
+         line-height: 35px;
+         margin-top:7.5px;
+         text-align: center;
+         text-indent: 0;
+
+      }
+      #number{
+         position: absolute;
+         top:50px;
+         width: 70%;
+         border-bottom: 1px solid #aaa;
+         height: 120px;
+
+      }
+      #num_left{
+         float: left;
+         /*border:1px solid black;*/
+         width: 350px;
+         text-align: center;
+         height: 120px;
+         font-size: 14px;
+         margin-left: 100px;
+
+      }
+      #num_left span{
+         font-size: 12px;
+         color:#555;
+      }
+      h1{
+         margin:5px;
+      }
+      #num_right{
+         float: left;
+         /*border:1px solid black;*/
+         width: 350px;
+         text-align: center;
+         height: 120px;
+         font-size: 14px;
+         margin-top:10px;
+      }
+      #num_left:hover{
+         cursor: pointer;
+      }
+      #num_right:hover{
+         cursor: pointer;
+      }
+      #text span{
+         position: absolute;
+         bottom:80px;
+         left:10px;
+         font-size: 13px;
+      }
+      #text p{
+         font-size: 12px;
+         position: absolute;
+         bottom:10px;
+         left:5px;
+         width: 68%;
+         font-weight: 600;
+         text-align: left;
+         /*margin-left: 25px;*/
+      }
+      #RIGHT{
+         position: absolute;
+         top:75px;
+         right: 0px;
+         width: 350px;
+         height: 200px;
+         /*border:1px solid black;*/
+         /*letter-spacing: 2px;*/
+         font-weight: 600;
+         /*padding:10px;*/
+         font-size: 14px;
+      }
+      #RIGHT p:hover{
+         cursor: pointer;
+      }
+      #dbwjd{
+         text-decoration: underline;
+      }
+      #icon_bar{
+         /*border:1px solid black;*/
+         height: 40px;
+         font-size: 22px;
+         letter-spacing: 16px;
+         text-indent: 10px;
+         cursor: pointer;
+      }
+      #lang{
+         position: absolute;
+         bottom:35px;
+         right: 35px;
+         width: 250px;
+         height: 50px;
+         border:2px solid black;
+         text-align: center;
+         /*line-height: 20px;*/
+         font-size: 23px;
+
+      }
+
+      #lang i{
+         float: left;
+         /*border:1px solid black;*/
+         margin-top: 11px;
+         text-indent: 45px;
+      }
+      #lang p{
+         /*border:1px solid black;*/
+         width: 125px;
+         float: right;
+         margin-top:7px;
+         margin-right: 60px;
+         position: relative;
+      }
+      #lang:hover{
+         cursor: pointer;
+         /*background: #eee;*/
+      }
+      #dbwjdul{
+         list-style: none;
+         margin:0;
+         padding: 0;
+      }
+      #dbwjdul>li{
+         width: 246px;
+         text-align: center;
+         font-size: 15px;
+         border-bottom: 2px solid black;
+         padding: 13px;
+         background: #fff;
+         font-weight: 600;
+      }
+      #dbwjdul>li:hover{
+         background: #eee;
+         cursor: pointer;
+      }
+      #country{
+         border:2px solid black;
+         position: absolute;
+         bottom:83px;
+         right:35px;
+         z-index: 1;
+         display: none;
+         /*box-shadow: 0 0 8px #ccc;*/
+      }
+      #dbwjdli{
+         border:0;
+      }
+      #country.show {
+         display: block;
+         }
+         #header{
+         position: relative;
+      }
+      #left p{
+         font-size: 0.875em;
+         display: inline-block;
+      }
+      #left i{
+         font-size: 18px;
+      }
+      #left{
+         /*margin-top:10px;*/
+         /*border:1px solid black;*/
+         width: 200px;
+         padding-top:10px;
+      }
+      #icon1{
+         position: relative;
+         /*border:1px solid black;*/
+      }
+      #icon1:hover .cls001{
+         opacity: 0;
+      }
+      .cls002{
+         position: absolute;
+         top:0;
+         left:0;
+      }
+      .cls002{
+         opacity: 0;
+      }
+      #icon1:hover .cls002{
+         opacity: 1;
+      }
+      span:hover{
+         cursor: pointer;
+      }
+      #middle{
+         width: 310px;
+         position: absolute;
+         top:-118px;
+         left:37%;
+      }
+      #right{
+         position: absolute;
+         top:20px;
+         right:0;
+
+      }
+      #right a:link,#right a:visited{
+         font-size: 14px;
+         color:#000;
+         text-decoration: none;
+         margin-top: 4px;
+      }
+      #right a:hover{
+         font-weight: 600;
+      }
+      #right i{
+         font-size:25px;
+
+      }
+      #right i:hover{
+         cursor: pointer;
+      }
+
+      .cls004,.cls006,.cls008{
+         /*display: none;*/
+      }
+      #right a,#Human,#eye,#heart,.cls009{
+         /*border:1px solid black;*/
+         float: left;
+      }
+      #right a{
+         margin-right: 14px;
+      }
+      #Human{
+         position: relative;
+         width: 25px;
+         height: 25px;
+         margin-right: 8px;
+      }
+      #eye{
+         position: relative;
+         width: 25px;
+         height: 25px;
+         margin-right: 15px;
+      }
+      #heart{
+         position: relative;
+         width: 25px;
+         height: 25px;
+         margin-right: 15px;
+      }
+      .cls003,.cls004{
+         position: absolute;
+         top:0;
+         left:0px;
+      }
+      .cls005,.cls006{
+         position: absolute;
+         top:0;
+         left:0px;
+      }
+      .cls007,.cls008{
+         position: absolute;
+         top:0;
+         left:0px;
+      }
+      .cls004,.cls006,.cls008{
+         opacity: 0;
+      }
+
+      #Human:hover .cls004{
+         opacity: 1;
+      }
+      #Human:hover .cls003{
+         opacity: 0;
+      }
+      #eye:hover .cls005{
+         opacity: 0;
+      }
+      #eye:hover .cls006{
+         opacity: 1;
+      }
+      #heart:hover .cls007{
+         opacity: 0;
+      }
+      #heart:hover .cls008{
+         opacity: 1;
+      }
+      #eye:hover #mini1{
+         display: block;
+      }
+      #mini1{
+         position: absolute;
+         top:25px;
+         left:-170px;
+         width: 280px;
+         height: 450px;
+         display: none;
+         z-index: 1000;
+      }
+      #Hea{
+         background: #111111;
+         color:#fff;
+         text-indent: 10px;
+         width: 280px;
+         height: 60px;
+         position: relative;
+         line-height: 60px;
+
+      }
+      #Hea p{
+         font-size:14px;
+      }
+      #Hea i{
+         position: absolute;
+         top:16px;
+         right: 10px;
+      }
+      #UP,#Down{
+         width: 280px;
+         height: 20px;
+         background:#e1e1e1;
+         text-align: center;
+         color:#fff;
+         line-height: 20px;
+      }
+      #UP:hover{
+         color:#555;
+      }
+      #Down:hover{
+         color:#555;
+      }
+      #main{
+         width: 280px;
+         height: 300px;
+         position: relative;
+         background: #fff;
+         /*border:1px solid black;*/
+         box-shadow: 0 0 4px rgba(0,0,0,0.2);
+         z-index: 1;
+      }
+      #Foot{
+         background: #eee;
+         height: 60px;
+         position: relative;
+         /*border:1px solid red;*/
+      }
+      #foot{
+         clear: both;
+         width: 150px;
+         margin:0 auto;
+         background: #111111;
+         color:#fff;
+         text-align: center;
+         height: 50px;
+         line-height: 22px;
+         position: absolute;
+         top:5px;
+         left:65px;
+         font-size:14px;
+         border:1px solid black;
+
+      }
+      #foot:hover{
+         cursor: pointer;
+      }
+      #nav{
+         margin-top:15px;
+         z-index: 1;
+         /*height: 35px;*/
+         position: relative;
+      }
+      #nav ul{
+         list-style: none;
+         margin:0;
+         padding: 0;
+         height: 30px;
+         /*border:1px solid black;*/
+         width: 80%;
+
+      }
+      #nav ul li{
+         font-weight: 600;
+         float: left;
+         /*width: 10%;*/
+         font-size: 14px;
+         margin-right: 33px;
+         margin-top:7px;
+         padding-bottom: 6px;
+      }
+      #nav ul li:hover{
+         cursor: pointer;
+         border-bottom: 2px solid black;
+
+      }
+      #input{/*div*/
+         position: relative;
+         z-index: -99;
+      }
+      #Input{/*type-text*/
+         padding: 8px;
+         position: absolute;
+         top:-33px;
+         right: 0;
+
+      }
+      .icon{
+         position: absolute;
+         top:-25px;
+         right:7px;
+         font-size: 20px;
+      }
+      #Input {
+         transition: 0.3s;
+         width: 200px;
+      }
+      #Input:focus{
+         width: 300px;
+         
+      }
+      #checkbox{
+         position: absolute;
+         top:10px;
+         left:0px;
+         opacity: 0;
+           width: 50px;
+           height: 50px;
+           z-index: 999;
+      }
+      #img{
+         position: absolute;
+         top:0;
+         left:28px;
+         width: 100px;
+         height: 80px;
+         z-index: 0;
+         /*border:1px solid black;*/
+         /*margin-top:-10px;*/
+      }
+      #sang-text{
+         float: right;
+         font-size: 12px;
+         /*border:1px solid black;*/
+         width: 150px;
+         margin-top:23px;
+         font-weight: 600;
+         margin-left: -10px;
+         position: absolute;
+         top:5px;
+         right:10px;
+      }
+      #border{
+         border-bottom:1px solid #e1e1e1;
+         margin:0 auto;
+
+      }
+      #Box{
+         width: 17px;
+         height: 17px;
+         border:1px solid black;
+         position: absolute;
+         top:34px;
+         left:13px;
+         z-index: 1;
+      }
+      #check{
+         position: absolute;
+         top:35px;
+         left:18px;
+         width: 7px;
+         height: 12px;
+         border-bottom: 2px solid black;
+         border-right:2px solid black;
+         transform:rotate(45deg);
+         display: none;
+      }
+      #mega1{/*더바디샵 선물하기 부가메뉴*/
+         width: 100%;
+         position: absolute;
+         top:40px;
+         /*border:1px solid black;*/
+         height: 250px;
+         background: #f7f7f7;
+         box-shadow: 0 0 7px #ccc;
+         text-align: center;
+         padding-left: 20px;
+         display: none;
+         z-index: 999;
+      }
+
+      #mega2{/*스킨케어 부가메뉴*/
+         width: 100%;
+         position: absolute;
+         top:40px;
+         /*border:1px solid black;*/
+         height: 250px;
+         background: #f7f7f7;
+         box-shadow: 0 0 7px #ccc;
+         text-align: center;
+         padding-left: 20px;
+         display: none;
+         z-index: 999;
+      }
+      #mega3,#mega4{
+         width: 100%;
+         position: absolute;
+         top:40px;
+         /*border:1px solid black;*/
+         height: 250px;
+         background: #f7f7f7;
+         box-shadow: 0 0 7px #ccc;
+         text-align: center;
+         padding-left: 20px;
+         display: none;
+         z-index: 999;
+      }
+      #mega1 p{
+         font-size: 14px;
+      }
+      #mega1 p:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #mega2 p:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #mega3 p:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #mega4 p:hover{
+         cursor: pointer;
+         font-weight: 600;
+      }
+      #mega1_left,#mega2_left,#mega3_left,#mega4_left{
+         float: left;
+         margin:0 90px;
+         margin-top:20px;
+      }
+      #mega1_middle,#mega2_middle,#mega3_middle,#mega4_middle{
+         float: left;
+         margin-top:20px;
+         position: relative;
+      }
+      #mega1_right,#mega2_right,#mega3_right,#mega4_right{
+         position: absolute;
+         top:20px;
+         left:0px;
+         /*border:1px solid black;*/
+         width: 200px;
+         /*margin-left:550px;*/
+         margin-top:20px;
+         /*clear: both;*/
+         margin:0 0 0 530px;
+      }
+      h2{
+         font-size: 18px;
+      }
+      #mega1_img,#mega2_img,#mega3_img,#mega4_img{
+         float: right;
+         margin-top:33px;
+         /*border:1px solid black;*/
+         width: 250px;
+         margin-right:260px;
+      }
+      #mega1_img img:hover{
+         cursor:pointer;
+      }
+      #mega2_img img:hover{
+         cursor:pointer;
+      }
+      #mega3_img img:hover{
+         cursor:pointer;
+      }
+      #mega4_img img:hover{
+         cursor:pointer;
+      }
+
+      #mega1:hover {
+         display: block;
+      }
+      #mega2_left,#mega3_left,#mega4_left{
+         margin-top: 35px;
+         margin-left:120px;
+      }
+      #mega2_middle,#mega3_middle,#mega4_middle{
+         margin-top:35px;
+         margin-left:30px;
+      }
+      #mega2_right,#mega3_right,#mega4_right{
+         margin-top:25px;
+      }
+      #mega2 p,#mega3 p{
+         margin-bottom:23px;
+         font-size: 15px;
+      }
+      #checkbox{
+         margin-top: 5px;
+         margin-left: 10px;
+      }
+      #checkbox:checked ~ #check {
+         display: block;
+         z-index: 999;
+      }
+      #trans{
+         margin-top:-25px;
+         margin-left: 2px;
+      }
+      #trans1,#trans2{
+         float: left;
+      }
+      #trans1{
+         margin-left:2px ;
+
+      }
+      #trans1>img{
+         width: 427px;
+         height: 420px;
+      }
+      #trans2>img{
+         width: 428px;
+         height: 420px;
+         margin:0 21px;
+      }
+      #trans3>img{
+         width: 428px;
+         height: 420px;
+      }
+      #trans1,#trans2,#trans3:hover{
+         cursor: pointer;
+      }
+      
+      #mega3_right,#mega4_right{
+         margin-top: 13px;
+      }
+      #mega4_middle{
+         margin-left:-10px;
+      }
+      #mega1_left,#mega1_middle{
+         margin-top:26px;
+      }
+      #mega1_right{
+         margin-top:5px;
+      }
+      .title{
+       font-size:1.5em;
+       font-weight: 600;
+       color: #555;
+    }
+      
+      #container{
+         height: auto;
+         margin-top:20px;
+         /*border:1px solid red;*/
+      }
+      #middle>img{
+         position: relative;
+         z-index: -999;
+      }
+      .cls100{
+         font-size: 13px;
+      }
+      .cls100>span{
+         font-size: 12px;
+         color:#888;
+      }
+      #con_img>img{
+         width: 100%;
+         height: 350px;
+      }
+      #con_left{
+         clear: both;
+         width: 255px;
+         height: auto;
+         border:2px solid #ccc;
+         margin-top:0px;
+         font-size: 14px;
+      }
+      #con_left1{
+         margin-top: -16px;
+         height: 55px;
+         /*border:1px solid red;*/
+         text-indent: 10px;
+         background: #ccc;
+         line-height: 55px;
+         position: relative;
+      }
+      #con_left:hover{
+         cursor: pointer;
+      }
+      #con_left1 i{
+         position: absolute;
+         top:15px;
+         right:15px;
+         font-size: 22px;
+      }
+      #con_left2{
+         height: 55px;
+         line-height: 25px;
+         font-weight: 600;
+         text-decoration: underline;
+         /*border:1px solid red;*/
+         text-indent: 10px;
+      }
+      #con_left3{
+         height: 60px;
+         line-height: 60px;
+         font-weight: 600;
+         background: #f7f7f7;
+         /*border:1px solid red;*/
+         text-indent: 10px;
+         position: relative;
+         margin-top: -30px;
+      }
+      #con_left3 i{
+         position: absolute;
+         top:17px;
+         right:15px;
+         font-size: 22px;
+      }
+      #con_left4{
+         /*border:1px solid red;*/
+         position: relative;
+         height: 60px;
+         line-height: 60px;
+         font-weight: 600;
+         text-indent: 10px;
+         background: #f7f7f7;
+         margin-top: -20px;
+
+      }
+      #con_left4 i{
+         position: absolute;
+         top:17px;
+         right:15px;
+         font-size: 22px;
+      }
+      #con_left10 i{
+         position: absolute;
+         top:17px;
+         right:15px;
+         font-size: 22px;
+      }
+      #con_left11 i{
+         position: absolute;
+         top:17px;
+         right:15px;
+         font-size: 22px;
+      }
+      #con_left5,#con_left6,#con_left7,#con_left8,#con_left9{
+         /*border:1px solid red;*/
+         text-indent: 10px;
+         font-weight: 600;
+         padding-left: 15px;
+         height: 50px;
+         line-height: 50px;
+
+      }
+      .cls099:hover{
+         background: #e4e4e4;
+      }
+      #con_left4:hover{
+         background: #e4e4e4;
+      }
+      #con_left3:hover{
+         background: #e4e4e4;
+      }
+      #con_left10:hover{
+         background: #e4e4e4;
+      }
+      #con_left11:hover{
+         background: #e4e4e4;
+      }
+      #con_left10{
+         position: relative;
+         height: 60px;
+         line-height: 60px;
+         font-weight: 600;
+         text-indent: 10px;
+         background: #f7f7f7;
+         margin-top: -20px;
+      }
+      #con_left11{
+         position: relative;
+         height: 60px;
+         line-height: 60px;
+         font-weight: 600;
+         text-indent: 10px;
+         background: #f7f7f7;
+         margin-top: -20px;
+      }
+      #con_left10{
+         margin-top: -14px;
+      }
+      #con_left5{
+         margin-top: -14px;
+      }
+      #con_left6,#con_left7,#con_left8,#con_left9{
+         /*border:1px solid red;*/
+         margin-top:-20px;
+      }
+      #BODY{
+         position: relative;
+         border-top:2px solid #ddd;
+         margin-top:25px;
+      }
+      #con_right{
+         position: absolute;
+         top:0;
+         right:0;
+         font-weight: 600;
+         padding: 5px 50px;
+         background: #e4e4e4;
+      }
+      #con_right:hover{
+         background: #ddd;
+      }
+      .cls098{
+         position: absolute;
+         top:2px;
+         right:200px;
+         font-size: 15px;
+         font-weight: 600;
+      }
+      
+      .boguny{
+         clear: both;
+         border:2px solid black;
+         width: 100px;
+         height: 45px;
+         line-height: 43px;
+         margin-left: 70px;
+         text-align: center;
+         font-size: 15px;
+         font-weight: 600;
+         position: relative;
+      }
+      .HEART{
+         margin-left: 185px;
+         font-size: 35px;
+         margin-top: -40px;
+      }
+      .boguny:hover{
+         cursor: pointer;
+         background: #000;
+         color:#fff;
+      }
+      .HEART:hover{
+         cursor: pointer;
+      }
+      #SANG{
+         border:1px solid red;
+         /*overflow: hidden;*/
+         clear:both;
+         height: 8100px;
+         /*width: 1050px;*/
+      }
+
+      #SANG:after {
+         content:"";
+         clear:both;
+      }
+      .item{
+         border:1px solid black;
+      }
+ 
+      #bbkjh100.arrow-deg {
+          transform: rotate(180deg);
+      }
+   </style>
+   <script>
+      $(function(){
+         $("#bbkjh").click(function(){
+            $(this).parent().parent().css({display:"none"});
+            location.reload();
+         });  
+      });
+   </script>
+   <script>
+         function myFunction() {
+           var popup = document.getElementById("country");
+           popup.classList.toggle("show");
+         }     
+   </script>
+   <script>
+         $(function(){
+            $("#MEGA2").click(function(){
+               $("#mega2").slideToggle();
+               $("#mega3").css({"display":"none"});
+               $("#mega4").css({"display":"none"});
+               $("#mega1").css({"display":"none"});
+            });
+         });
+         $(function(){
+            $("#MEGA1").click(function(){
+               $("#mega1").slideToggle();
+               $("#mega2").css({"display":"none"});
+               $("#mega3").css({"display":"none"});
+               $("#mega4").css({"display":"none"});
+            });
+         });
+         $(function(){
+            $("#MEGA3").click(function(){
+               $("#mega3").slideToggle();
+               $("#mega1").css({"display":"none"});
+               $("#mega2").css({"display":"none"});
+               $("#mega4").css({"display":"none"});
+            });
+         });
+         $(function(){
+            $("#MEGA4").click(function(){
+               $("#mega4").slideToggle();
+               $("#mega1").css({"display":"none"});
+               $("#mega2").css({"display":"none"});
+               $("#mega3").css({"display":"none"});
+            });
+         });
+   </script>
+   <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos < currentScrollPos) {
+          document.getElementById("top").style.top = "700px";
+        } else {
+           document.getElementById("top").style.top = "-200px";
+        }
+           // prevScrollpos = currentScrollPos;
+      }
+   </script>
+   <script>
+        $(function(){
+            $("#con_left4").click(function(){
+               $("#block").slideToggle();
+
+               $("#bbkjh100").toggleClass("fa-angle-down");
+               $("#bbkjh100").toggleClass("fa-angle-up");
+               // .css({transform:"translate(-50%,0)"});
+
+            });
+         });
+   </script>
+</head>
+<body>
+   <div id="wrapper">
+      <div id="dbwjd">
+      <div id="header">
+         <div id="left">
+            <span><i class="fas fa-map-marker-alt"></i> <p>매장안내</p></span>
+            <span id="icon1"><i class="far fa-gem cls001"></i><i class="fas fa-gem cls002" ></i> <p>LYB 멤버십</p></span>
+         </div>
+         <div id="middle">
+            <img src="LOGo.jpg" alt="">
+         </div>
+         <div id="right">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+            <div id="Human">
+            <i class="far fa-user cls003"></i> <!-- 사람 -->
+            <i class="fas fa-user cls004"></i>  <!-- 색사람 -->
+            </div>
+            <div id="eye">
+            <i class="far fa-eye cls005"></i> <!-- 흰눈 -->
+            <i class="fas fa-eye cls006"></i> <!-- 검은눈 -->
+            <div id="mini1">
+               <div id="Hea">
+                  <p>최근 본 제품</p>
+                  <i class="fas fa-times" id="bbkjh"></i> <!-- X모양 -->
+               </div>
+               <div id="UP">
+                  <i class="fas fa-angle-up"></i>
+               </div>
+               <div id="main">
+                  <div id="border">
+                  <input type="checkbox" id="checkbox">
+                  <div id="Box">
+                  
+                  </div>
+                  <div id="check">
+                  </div>
+                  <img src="SANG1-2.jpg" alt="" id="img">
+                  <p id="sang-text">티트리 3-in-1 워시 스크럽 마스크 125ML</p>
+                  </div>
+               </div>
+               <div id="Down">
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <div id="Foot">
+                  <div id="foot">
+                     <p>장바구니 담기</p>
+                  </div>
+               </div>
+            </div>
+            </div>
+            <div id="heart">
+            <i class="far fa-heart cls007"></i> <!-- 안채운 하트 -->
+            <i class="fas fa-heart cls008"></i> <!-- 채운하트 -->
+            </div>
+            <i class="fas fa-cog"></i><!-- 환경설정 -->
+         </div>
+      </div>
+      <div id="nav">
+         <ul class="cls020">
+            <li>NEW & EVENT</li>
+            <li id="MEGA1">#더바디샵_선물하기</li>
+            <li id="MEGA2">SKIN CARE</li>
+            <li id="MEGA3">BATH & BODY</li>
+            <li>FRAGRANCE</li>
+            <li>HAIR</li>
+            <li id="MEGA4">SHOP BY RANGE</li>
+            <li>#SALE</li>
+            <li>TIP&ADVICES</li>
+         
+            <div id="mega1">
+            <div id="mega1_left">
+            <h2>가격대별 선물하기</h2>
+            <p>1만원대 선물세트</p>
+            <p>2만원대 선물세트</p>
+            <p>3만원이상 선물세트</p>
+            <p>상품 전체보기</p>
+            </div>
+            <div id="mega1_middle">
+            <h2>연령대별 선물하기</h2>
+            <p>10대 선물하기</p>
+            <p>20대 선물하기</p>
+            <p>30대 선물하기</p>
+            <p>40대이상 선물하기</p>
+            </div>
+            <div id="mega1_right">
+            <h2>상품별 선물하기</h2>
+            <p>스킨케어</p>
+            <p>바디케어</p>
+            <p>헤어케어</p>
+            <p>화이트머스크</p>
+            </div>
+            <div id="mega1_img">
+               <img src="MENU-1.jpg" alt="">
+            </div>
+         </div>
+         <div id="mega2">
+            <div id="mega2_left">
+            <p>클렌저</p>
+            <p>토너 & 미스트</p>
+            <p>아이케어</p>
+            <p>화장솜 & 액세서리</p>
+            </div>
+            <div id="mega2_middle">
+            <p>스크럽 & 마스크</p>
+            <p>세럼</p>
+            <p>선케어</p>
+            <p>남성 스킨케어</p>
+            </div>
+            <div id="mega2_right">
+            <p>페이스 오일</p>
+            <p>모이스처라이저</p>
+            <p>립케어</p>
+            </div>
+            <div id="mega2_img">
+               <img src="MENU-2.jpg" alt="">
+            </div>
+         </div>
+         <div id="mega3">
+            <div id="mega3_left">
+            <p>배쓰 & 샤워</p>
+            <p>바디스크럽</p>
+            <p>비누</p>
+            <p>트래블 에센셜</p>
+            </div>
+            <div id="mega3_middle">
+            <p>바디모이스처라이저</p>
+            <p>바디미스트</p>
+            <p>핸드크림</p>
+            <p>풋케어</p>
+            </div>
+            <div id="mega3_right">
+            <p>대용량 바디케어</p>
+            <p>바디오일</p>
+            <p>핸드워시</p>
+            <p>액세서리</p>
+            </div>
+            <div id="mega3_img">
+               <img src="MENU-3.jpg" alt="">
+            </div>
+         </div>
+         <div id="mega4">
+            <div id="mega4_left">
+            <p>화이트머스크</p>
+            <p>모링가</p>
+            <p>티트리</p>
+            <p>핑크그레이프후룻</p>
+            </div>
+            <div id="mega4_middle">
+            <p>브리티쉬 로즈</p>
+            <p>화이트 머스크 플로라</p>
+            <p>진저</p>
+            <p>햄프</p>
+            </div>
+            <div id="mega4_right">
+            <p>아몬드 밀크 & 허니</p>
+            <p>페퍼민트</p>
+            <p>망고</p>
+            <p>슈퍼푸드 마스크</p>
+            </div>
+            <div id="mega4_img">
+               <img src="MENU-6.jpg" alt="">
+            </div>
+         </div>
+         </ul>
+         <div id="input">
+         <div id="in">
+         <input type="text" id="Input" placeholder="검색어를 입력하세요">
+         <i class="fas fa-search icon"></i>
+         </div>
+         </div>
+         </div>
+         </div>
+         <div id="container">
+            <p class="cls100"><span>Home</span> / NEWS & EVENT / BEST SELLERS</p>
+            <div id="con_img">
+               <img src="BEST SEL.jpg" alt="">
+            </div>
+            <div id="BODY">
+            <div id="con_left">
+               <div id="con_left1" >
+                       <p>필터검색<i class="fas fa-angle-left"></i></p>
+               </div>
+               <div id="con_left2">
+                  <p>필터 초기화</p>
+               </div>
+               <div id="con_left3" class="cls099">
+                  <p>제품특징<i class="fas fa-angle-down"></i></p>
+               </div>
+               <div id="con_left4" class="cls099">
+                  <p>가격대<i class="fas fa-angle-up" id="bbkjh100"></i></p>
+               </div>
+                  <div id="block">
+               <div id="con_left5" class="cls099">
+                  <p><i class="far fa-square" ></i> 1만원 미만</p>
+               </div>
+               <div id="con_left6" class="cls099">
+                  <p><i class="far fa-square"></i> 1만원대</p>
+               </div>
+               <div id="con_left7" class="cls099">
+                  <p><i class="far fa-square"></i> 2만원대</p>
+               </div>
+               <div id="con_left8" class="cls099">
+                  <p><i class="far fa-square"></i> 3만원대</p>
+               </div>
+               <div id="con_left9" class="cls099">
+                  <p><i class="far fa-square"></i> 4만원대 이상</p>
+               </div>
+                  </div>
+               <div id="con_left10" class="cls099">
+                  <p>라인별<i class="fas fa-angle-down"></i></p>
+               </div>
+               <div id="con_left11" class="cls099">
+                  <p>평점<i class="fas fa-angle-down"></i></p>
+               </div>
+               <div id="con_right">
+                  <p>판매순 <i class="fas fa-angle-down"></i></p>
+               </div>
+               <p class="cls098">정렬</p>
+               </div>
+               
+               </div>
+
+               </div>
+               <div id="SANG">
+                  <div id="item1" class="item">
+                  <img src="BEST-1.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>진저 스캘프 케어 대용량 샴푸 400ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>17,000</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i></div>
+
+                  <div id="item2" class="item">
+                  <img src="BEST-2.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>화이트 머스크 핸드크림 100ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>19,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+                  
+                  <div id="item3" class="item">
+                  <img src="BEST-3.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>모링가 소프트닝 바디밀크 로션 250ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>16,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item4" class="item">
+                  <img src="BEST-4.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>화이트 머스크 바디로션 400ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>28,000</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item5" class="item">
+                  <img src="BEST-5.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>모링가 바디요거트 200ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>18,000</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item6" class="item">
+                  <img src="BEST-6.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>화이트머스크 오 드 뚜왈렛 30ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>27,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item7" class="item">
+                  <img src="BEST-7.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>화이트머스크 샤워젤 250ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>16,000</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+                  
+                  <div id="item8" class="item">
+                  <img src="BEST-8.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>티트리 오일 10ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>13,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item9" class="item">
+                  <img src="BEST-9.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>핑크 그레이프 후룻 샤워젤 250ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>11,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item10" class="item">
+                  <img src="BEST-10.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>티트리 오일 20ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>21,000</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item11" class="item">
+                  <img src="BEST-11.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>화이트머스크 샤워젤 400ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>21,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+
+                  <div id="item12" class="item">
+                  <img src="BEST-12.jpg" alt="">
+                  <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p>진저스캠프 케어 컨디셔너 250ML</p>
+                  <p class="cls009"><i class="fas fa-won-sign"></i>12,500</p>
+                  <div class="boguny"><span>장바구니</span></div>
+                  <div class="HEART"><i class="far fa-heart"></i>
+                  </div>
+               </div>
+   
+         <footer>
+            <div id="foot3">
+               <p>이용 약관 </p> <p id="dbwjd">개인정보 취급방침 </p> <p>이메일 무단수집 거부 </p> <p>공지사항 </p> <p>창업안내 </p> <p>채용정보</p>
+               <div id="foot2">
+                  FAQ & 1대1 문의
+               </div>
+            </div>
+            <div id="number">
+               <div id="num_left">
+                  <p>온라인쇼핑몰문의</p>
+                  <h1>1588-2564</h1>
+                  <span>E-mail:apdlf02@naver.com</span>
+               </div>
+               <div id="num_right">
+                  <p>매장 및 제품문의</p>
+                  <h1>080-256-2564</h1>
+               </div>
+            </div>
+            <div id="text">
+               <span>본 사이트에 게시된 자료에 대한 권리는 (주)비에스케이코퍼레이션에 있으며 , 정보를 가공 , 판매하는 행위 등 서비스에 게시된 자료를 영리목적으로 사용할 수 없습니다</span><br>
+               <p>(주)비에스케이코퍼레이션 대표이사 : 박종호 서울시 강남구 학동로 401 13층 고객센터 080-759-7700 팩스 02-759-0788
+               개인정보관리책임자 : 오미경공정거래위원회 고시 제 2000-1호에 따른 사업자등록번호 116-81-62784
+               이메일 주소 : webmaster@thebodyshop.co.kr 통신판매업 신고번호 제 2010-서울강남-02017호 3
+               사업자정보확인 온라인 이용약관 호스팅 사업자 (주) 비에스케이코퍼레이션</p>
+            </div>
+            <div id="RIGHT">
+               <p>브랜드스토리 , 더바디샵 뉴스 , 공정무역 , 윤리무역 , 캠페인 , 가맹점 & 특판문의 , 회사소개 , 매장정보 , 사이트맵</p>
+               <div id="icon_bar">
+               <i class="fab fa-twitter"></i> <!-- 트위터 -->
+               <i class="fab fa-facebook-f"></i><!-- 페이스북 -->
+               <i class="fab fa-instagram"></i><!-- 인스타 -->
+               <i class="fab fa-youtube"></i><!-- 유튜브 -->
+               <i class="fas fa-share-alt"></i><!-- 공유 -->
+               </div>
+            </div>
+            <div id="lang" onclick="myFunction()">
+               <i class="fas fa-angle-down"></i><p>Korea</p>
+            </div>
+            <div id="country">
+               <ul id="dbwjdul">
+                  <li>Japan</li>
+                  <li>ltaly</li>
+                  <li>India</li>
+                  <li>France</li>
+                  <li id="dbwjdli">USA</li>
+               </ul>
+            </div>
+            <aside>
+   <div id="top">
+      <a href="#">TOP</a>
+   </div>
+   </aside>
+         </footer>
+   
+</body>
+</html>

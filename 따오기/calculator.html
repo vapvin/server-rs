@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>계산기</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var btnEnterFlag = "N";
+	$(function() {
+
+		var btnOpr = "";
+
+		// 총합
+        var total = 0;
+		var result;
+        
+        // 현재 입력값
+        var btnEnter = "";
+
+        // 연산자 버튼 누를때마다 total에 btnEnter값 추가하고 btnEnter는 초기화 
+
+        // 클릭 할때마다 btnEnter에 append
+		$(".btnNum").click(function() {
+            var ts = $(this).text();
+			btnEnter += ts;
+			$("#display").text(btnEnter);
+            console.log(btnEnter);
+		})
+
+		//한글자씩 지우기
+
+		$("#backSpace").click(function() {
+
+			var i = $("#display").text().length;
+
+			var number = $("#display").text();
+
+			var backSpace = number.slice(0, i - 1);
+
+			$("#display").text(backSpace);
+
+		})
+
+		//전체지우기
+
+		$("#btnAc").click(function() {
+
+			$("#display").empty();
+			btnEnter = "";
+			btnOpr = "";
+			total = 0;
+
+		})
+		
+		//.두번 안눌리게
+		$(".btnDot").click(function(){
+			
+			if($("#display").indexOf(".") != -1){
+		
+				$("#display").text(".");
+			}
+			
+		})
+		
+    //
+		//연산자
+		function calc() {
+
+		if ($(this).text() == "÷") {
+			btnOpr = '/';
+		} else {
+
+			btnOpr = $(this).text();
+		}
+
+		if(total == 0){
+			total = Number(btnEnter);
+		}else{
+			switch (btnOpr) {
+			case "+":
+			total += Number(btnEnter);
+				btnEnter = "";
+
+				break;
+			case "-":
+				total -= Number(btnEnter);
+				btnEnter = "";
+				break;
+			case "*":
+				total *= Number(btnEnter);
+				btnEnter = "";
+				break;
+			case "/":
+				total /= Number(btnEnter);
+				btnEnter = "";
+				console.log(total)
+				break;
+
+			}
+		}
+		
+			console.log(total);
+			firstNum = total;
+			$("#btnEnter").empty();
+			if(total == firstNum){
+				$("#display").text(total);
+			}
+		}
+		$(".btnOpr").click(calc);
+		$(".btnOpr2").click(function(){
+			console.log(btnOpr)
+			switch (btnOpr) {
+			case "+":
+				
+				total += Number(btnEnter);
+				btnEnter = "";
+
+				break;
+			case "-":
+				total -= Number(btnEnter);
+				btnEnter = "";
+				break;
+			case "*":
+				total *= Number(btnEnter);
+				btnEnter = "";
+				break;
+			case "/":
+				total /= Number(btnEnter);
+				btnEnter = "";
+				break;
+			}
+			$("#btnEnter").empty();
+			$("#display").text(total);
+		});
+		btnOpr = "";
+	});
+	
+
+</script>
+
+<style>
+.btn {
+	background-color: #DDDDDD;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 21px;
+}
+
+.enter {
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	text-align: right;
+	font-size: 25px;
+	padding: 0px 30px 0px 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+	<table align="center">
+
+		<tr>
+
+			<td class="enter" colspan="4" style="background-color: #E7E9F2; height: 30px"
+				id="display2"></td>
+
+
+
+		</tr>
+		<tr>
+
+			<td class="enter" colspan="4" style="background-color: #FFFFFF"
+				id="display"></td>
+
+
+
+		</tr>
+
+		<tr>
+
+			<td class="btn" colspan="2" style="background-color: #FFCC00"
+				id="btnAc">AC</td>
+
+			<td class="btn" id="backSpace">←</td>
+
+			<td class="btn btnOpr">÷</td>
+
+		</tr>
+
+		<tr>
+
+			<td class="btn btnNum">7</td>
+
+			<td class="btn btnNum">8</td>
+
+			<td class="btn btnNum">9</td>
+
+			<td class="btn btnOpr">*</td>
+
+		</tr>
+
+		<tr>
+
+			<td class="btn btnNum">4</td>
+
+			<td class="btn btnNum">5</td>
+
+			<td class="btn btnNum">6</td>
+
+			<td class="btn btnOpr">-</td>
+
+		</tr>
+
+		<tr>
+
+			<td class="btn btnNum">1</td>
+
+			<td class="btn btnNum">2</td>
+
+			<td class="btn btnNum">3</td>
+
+			<td class="btn btnOpr">+</td>
+
+		</tr>
+
+		<tr>
+
+			<td class="btn btnNum" colspan="2">0</td>
+
+			<td class="btn btnNum btnDot">.</td>
+
+			<td class="btn btnOpr2"
+				style="background-color: #191919; color: #FFFFFF" id="btnAns">=</td>
+
+		</tr>
+
+	</table>
+
+
+</body>
+
+</html>
+
